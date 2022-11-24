@@ -1,0 +1,141 @@
+Html5
+
+1- Div ve Span, web sitenin düzeni için kullanılan etiketlerdir. Span ve Div Etiketlerinin Farkı Nedir? Div etiketi web düzeninde kullanılırken,
+   span etiketi tablolar için kullanılmaktadır.
+
+
+
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JAVASCRİPT
+
+ 1- onChange: Form'un içindeki form elementlerinin(input) value'su her değiştiğinde bu değişen value'yu bizim her defasında elde etmemize olanak sağlayan eventtir.
+
+ 2- Math.floor(sayidegeri); şeklinde kullanılır. Sayının ondalık değeri ne olursa olsun aşağı yuvarlama işlemini yapar. // floor(); verilen ondalıklı sayıyı aşağı yuvarlar
+----------------------------------------------------------------------------------------------------------------------------
+
+ 3- Math.random() fonksiyonu her zaman 1’den küçük ondalıklı sayı üretir. (0 dahil)
+
+   -> JavaScript Math.random() ile üretilen rastgele ondalıklı sayıyı Math.floor() ile ondalıksız tamsayıya çevirebiliriz.
+   -> (Math.floor(Math.random() * 10)); // 0 ve 9 arasında sayı üretir.
+   -> (Math.floor(Math.random() * 11)); // 0 ve 9 arasında sayı üretir.
+
+  
+   -> (Math.floor(Math.random() * 10) + 1); // 1 ve 10 arasında sayı üretir.     
+   -> (Math.floor(Math.random() * 100) + 1); // 1 ve 100 arasında sayı üretir.  
+
+
+-> Her zaman JavaScript ile rastgele sayı üretmek ile uğraşmamak için fonksiyon yazılabilir.
+--------------------------------------------------------------    
+
+Aşağıdaki fonksiyon min (dahil) ve max (hariç) arasında rastgele sayı üretir
+
+<script>        
+function randomInt(min, max) {      
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+</script>
+
+ --------------------------------------------------------------  Not: +1 olunca max dahil oluyor. +1 yoksa max dahil değildir.    
+
+Aşağıdaki fonksiyon min (dahil) ve max (dahil) arasında rastgele sayı üretir
+
+<script>
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+</script>
+----------------------------------------------------------------------------------------------------------------------------
+   
+	
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+       
+Boostrap     
+ 
+1- Boostrap hem js hemde css'e hizmet eden bir kütüphanedir aslında. Bu sebepten hem css hemde javacscript kodlarını index.html sayfasına eklememiz lazım.
+   Not: Reactta index.html sayfası public bölümünün altındadır. O index.html sayfasına bu linkleri ekle.
+ 
+   CSS' İ <head/> etiketinin içine yerleştir.
+ 
+   jAVASCRİPT'İ <body/> etiketinin içine yerleştir.  
+
+
+ 
+ -Linkleri bulmak için Boostrap -> Doc -> introduction kısmına girip-> CSS VE JS kodlarını oradan alabilirsin. (Örnekten alabilirsin)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+Not: Popper ve bizim JS'mizi ayrı ayrı da dahil edebilirsiniz . Açılır menüleri, açılır pencereleri veya araç ipuçlarını kullanmayı 
+     planlamıyorsanız, Popper'ı eklemeyerek birkaç kilobayt tasarruf edin.
+
+     Popper.min.js kütüphanesi Boostrap 4 ile gelmiş ve açılır menülerin çalışmasını sağlıyor. 
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+REACT JS
+
+         
+1-) State yani değerlerimizin tutulacağı yer anlamına gelir. 
+  
+ Örnek: 
+
+     [x,setX]=useState(0);  
+     
+     x: değerlerimizi tutacağımız yer. 
+     setX: Girilen değerleri değiştirmemizi sağlar:
+     useState: ilk değeri x'e atamamızı sağlar.
+
+2-) x.target.value kullanımı:
+
+  İnputtan gelen veriyi sürekli görmemiz gerekiyor. Her veri girdiğimizde ya da sildiğimizde çalışmasını istediğimiz method'u yazmamız lazım. 
+  Kısaca veri girdiğinde inputa ne olsun sorusuna yanıt verir.
+
+ 
+  Taslak örnek:
+   const changeHandler = e => {
+    setTask(e.target.value);
+  }
+
+       
+Örnek1:
+      onChange={(e)=>
+      console.log(e.target.value)} //gelen  her e değerini consola yazdık.   
+
+ÖRNEK2:
+   const [tast, setTask] = useState(" "); //usestate kullandık
+   const changeHandler = e => {           //inputtan gelen e değerini setTask ile işledik. 
+    setTask(e.target.value); 
+  }
+   
+[
+//İnputa veri girildi biz onu value'de tutmuştuk. Sonra o veriyi biz işlememiz lazım. Onuda useState'in 2. parametresi mesela [x,setX]= useState();
+ burdaki setX ile ayarlayabailiriz.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
